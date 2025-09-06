@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPublicClient, http } from "viem";
+import { base } from "wagmi/chains";
 import WalletConnect from "./components/WalletConnect";
 import EmojiButton from "./components/EmojiButton";
-import { getContract } from "../lib/contract";
+import { contractAddress, contractABI } from "../lib/contract";
 
 type Vibe = {
   user: string;
@@ -12,45 +14,45 @@ type Vibe = {
 };
 
 export default function Page() {
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [vibes, setVibes] = useState<Vibe[]>([]);
 
+  // Watch for new vibe events using viem directly
   useEffect(() => {
-    const init = async () => {
-      const contract = await getContract();
-      if (contract) {
-        const vibeFilter = contract.filters.NewVibe();
+    const publicClient = createPublicClient({
+      chain: base,
+      transport: http(),
+    });
 
-        const handleNewVibe = (
-          user: string,
-          message: string,
-          timestamp: bigint,
-        ) => {
-          setVibes((prevVibes) => [
-            ...prevVibes,
-            {
-              user,
-              message,
-              timestamp: Number(timestamp),
-            },
-          ]);
-        };
+    const unwatch = publicClient.watchContractEvent({
+      address: contractAddress,
+      abi: contractABI,
+      eventName: "NewVibe",
+      onLogs(logs) {
+        logs.forEach((log) => {
+          const { sender, emoji, timestamp } = log.args;
+          if (sender && emoji && timestamp) {
+            setVibes((prevVibes) => [
+              ...prevVibes,
+              {
+                user: sender,
+                message: emoji,
+                timestamp: Number(timestamp),
+              },
+            ]);
+          }
+        });
+      },
+    });
 
-        contract.on(vibeFilter, handleNewVibe);
-
-        return () => {
-          contract.off(vibeFilter, handleNewVibe);
-        };
-      }
+    return () => {
+      unwatch();
     };
-
-    init();
   }, []);
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-black text-white">
       <div className="w-full max-w-md mx-auto">
-        <WalletConnect setWalletAddress={setWalletAddress} />
+        <WalletConnect />
 
         <div className="mt-8 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -62,10 +64,10 @@ export default function Page() {
         </div>
 
         <div className="flex justify-center mt-8 space-x-4">
-          <EmojiButton emoji="🔥" walletAddress={walletAddress} />
-          <EmojiButton emoji="🚀" walletAddress={walletAddress} />
-          <EmojiButton emoji="🎉" walletAddress={walletAddress} />
-          <EmojiButton emoji="💯" walletAddress={walletAddress} />
+          <EmojiButton emoji="🔥" />
+          <EmojiButton emoji="🚀" />
+          <EmojiButton emoji="🎉" />
+          <EmojiButton emoji="💯" />
         </div>
 
         <div className="mt-12">

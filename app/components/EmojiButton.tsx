@@ -1,44 +1,46 @@
 "use client";
 
-import { getContract } from "../../lib/contract";
+import { Transaction, TransactionButton } from "@coinbase/onchainkit/transaction";
+import { contractAddress, contractABI } from "../../lib/contract";
+import { encodeFunctionData } from "viem";
 
 interface EmojiButtonProps {
   emoji: string;
-  walletAddress: string | null;
 }
 
 export default function EmojiButton({
   emoji,
-  walletAddress,
 }: EmojiButtonProps) {
-  const sendVibe = async () => {
-    if (!walletAddress) {
-      alert("Please connect your wallet first.");
-      return;
-    }
+  // Encode the function call data
+  const data = encodeFunctionData({
+    abi: contractABI,
+    functionName: "sendVibe",
+    args: [emoji],
+  });
 
-    try {
-      const contract = await getContract();
-      if (!contract) {
-        alert("Failed to get contract. Is MetaMask installed and connected?");
-        return;
-      }
-      const tx = await contract.sendVibe(emoji);
-      await tx.wait();
-      alert(`Vibe "${emoji}" sent!`);
-    } catch (error) {
-      console.error("Failed to send vibe:", error);
-      alert("Failed to send vibe. See console for details.");
-    }
-  };
+  const calls = [
+    {
+      to: contractAddress,
+      value: BigInt(0),
+      data: data,
+    },
+  ];
 
   return (
-    <button
-      onClick={sendVibe}
-      disabled={!walletAddress}
-      className="text-4xl p-4 rounded-full hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+    <Transaction
+      calls={calls}
+      onSuccess={() => {
+        alert(`Vibe "${emoji}" sent successfully!`);
+      }}
+      onError={(error) => {
+        console.error("Failed to send vibe:", error);
+        alert("Failed to send vibe. See console for details.");
+      }}
     >
-      {emoji}
-    </button>
+      <TransactionButton
+        className="text-4xl p-4 rounded-full hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        text={emoji}
+      />
+    </Transaction>
   );
 }

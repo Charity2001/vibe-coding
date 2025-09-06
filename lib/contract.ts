@@ -1,21 +1,45 @@
-import { ethers } from 'ethers';
+import { type Address } from 'viem';
 
 // PASTE YOUR CONTRACT ADDRESS HERE
-export const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+export const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" as Address;
 
 // The Application Binary Interface (ABI) for the smart contract.
 export const contractABI = [
-  "function sendVibe(string memory emoji)",
-  "event NewVibe(address indexed sender, string emoji, uint256 timestamp)",
-  "function getVibes() view returns (tuple(address sender, string emoji, uint256 timestamp)[] memory)"
-];
+  {
+    "inputs": [{"internalType": "string", "name": "emoji", "type": "string"}],
+    "name": "sendVibe",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": true, "internalType": "address", "name": "sender", "type": "address"},
+      {"indexed": false, "internalType": "string", "name": "emoji", "type": "string"},
+      {"indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256"}
+    ],
+    "name": "NewVibe",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "getVibes",
+    "outputs": [
+      {
+        "components": [
+          {"internalType": "address", "name": "sender", "type": "address"},
+          {"internalType": "string", "name": "emoji", "type": "string"},
+          {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+        ],
+        "internalType": "struct BlockVibes.Vibe[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+] as const;
 
-// This helper function returns an instance of the smart contract.
-export const getContract = async () => {
-    if (typeof window.ethereum === 'undefined') {
-        return null;
-    }
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    return new ethers.Contract(contractAddress, contractABI, signer);
-};
+// Contract instance is now handled by wagmi hooks directly
