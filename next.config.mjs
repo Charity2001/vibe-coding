@@ -9,3 +9,13 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+// async redirects() {
+//   return [
+//     {
+//       source: '/home',
+//       destination: 'https://vibe-coding-snowy-five.vercel.app',
+//       permanent: true,
+//     },
+//   ] {source: '/.wellknown: '/home', permanent: true}
+// }
