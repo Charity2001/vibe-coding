@@ -2,6 +2,14 @@ import { sendFrameNotification } from "@/lib/notification-client";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  if (!process.env.REDIS_URL || !process.env.REDIS_TOKEN) {
+    console.error("Redis not configured, notifications disabled.");
+    return NextResponse.json(
+      { error: "Redis not configured, notifications disabled." },
+      { status: 500 },
+    );
+  }
+
   try {
     const body = await request.json();
     const { fid, notification } = body;
