@@ -1,24 +1,26 @@
 {
-  "name": "blockvibez",
-  "version": "1",
-  "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
-  "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
-  "imageUrl": "https://vibe-coding-snowy-five.vercel.app/image.png",
-  "buttonTitle": "set my vibe",
-  "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
-  "splashBackgroundColor": "#6C63FF",
-  "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
-  "subtitle": "catch the vibes on-chain",
-  "description": "share your vibe with emojis, on chain. connect your wallet, set your vibe and see the community mood board update in real time",
-  "primaryCategory": "developer-tools",
-  "tags": [
-	"facebook",
-	"whatsapp",
-	"twitter",
-	"instagram",
-	"tiktok"
-  ],
-  "ogTitle": "blockvibez by charity",
-  "tagline": "your mood forever on chain",
-  "ogDescription": "drop your vibe emoji and see it live onchain"
+  "frame": {
+    "name": "blockvibez",
+    "version": "1",
+    "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
+    "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
+    "imageUrl": "https://vibe-coding-snowy-five.vercel.app/image.png",
+    "buttonTitle": "set my vibe",
+    "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
+    "splashBackgroundColor": "#6C63FF",
+    "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
+    "description": "share your vibe with emojis, on chain. connect your wallet, set your vibe and see the community mood board update in real time",
+    "subtitle": "catch the vibes on-chain",
+    "primaryCategory": "developer-tools",
+    "tags": [
+      "facebook",
+      "whatsapp",
+      "twitter",
+      "tiktok",
+      "instagram"
+    ],
+    "ogTitle": "blockvibez by charity",
+    "tagline": "your mood forever on chain",
+    "ogDescription": "drop your vibe emoji and see it live onchain"
+  }
 }
