@@ -1,0 +1,29 @@
+{
+  "accountAssociation": {
+    "type": "ethereum",
+    "address": "0x0000000000000000000000000000000000000000"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Vibe Coding",
+    "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
+    "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
+    "imageUrl": "https://vibe-coding-snowy-five.vercel.app/preview.png",
+    "buttonTitle": "Launch Vibe Coding",
+    "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
+    "splashBackgroundColor": "#ffffff",
+    "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
+    "subtitle": "AI Meme Generator",
+    "description": "AI-powered meme generator",
+    "screenshotUrls": ["https://vibe-coding-snowy-five.vercel.app/preview.png"],
+    "primaryCategory": "Entertainment",
+    "tags": ["AI", "memes", "fun"],
+    "heroImageUrl": "https://vibe-coding-snowy-five.vercel.app/hero.png",
+    "tagline": "Turn any image into a meme!",
+    "ogTitle": "Vibe Coding",
+    "ogDescription": "AI-powered meme generator",
+    "ogImageUrl": "https://vibe-coding-snowy-five.vercel.app/og.png",
+    "castShareUrl": "https://vibe-coding-snowy-five.vercel.app"
+  }
+}
+  
