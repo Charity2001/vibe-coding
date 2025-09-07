@@ -1,26 +1,26 @@
 {
-  "name": "BlockVibez",
-  "iconUrl": "https://i.imgur.com/5815mG3.png",
-  "homeUrl": "https://vibe-coding.vercel.app",
-  "imageUrl": "https://i.imgur.com/5815mG3.png",
-  "buttonTitle": "Set your Vibe",
-  "splashImageUrl": "https://i.imgur.com/5815mG3.png",
-  "splashBackgroundColor": "#000000",
-  "webhookUrl": "https://vibe-coding.vercel.app/api/webhook",
-  "primaryCategory": "developer-tools",
-  "subtitle": "Catch the vibes on-chain.",
-  "description": "Share your vibe with emojis on-chain. Connect your wallet, set your vibe, and see the community mood board update in real-time.",
-  "accountAssociation": {
-    "header": {
-      "alg": "eddsa",
-      "typ": "jwt"
-    },
-    "payload": {
-      "iss": "did:pkh:eip155:1:0x433268895e5815f7624f435583a45a41f465e255",
-      "sub": "did:pkh:eip155:8453:0x502f819683b83451525e55a1309a6881a555f03a",
-      "iat": 1720126800,
-      "exp": 1751662800
-    },
-    "signature": "0x472189911a6d378f6fce13858b3d0438d3a733334df9161a61445a1335133d6c5432c66ea6198258230495738594830295839403284958493029192839485930"
+    "frame": {
+      "name": "blockvibez",
+      "version": "1",
+      "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
+      "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
+      "imageUrl": "https://vibe-coding-snowy-five.vercel.app/image.png",
+      "buttonTitle": "set my vibe",
+      "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
+      "splashBackgroundColor": "#6C63FF",
+      "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
+      "subtitle": "catch the vibes on-chain",
+      "description": "share your vibe with emojis, on chain. connect your wallet, set your vibe and see the community mood board update in real time",
+      "primaryCategory": "developer-tools",
+      "tags": [
+        "facebook",
+        "whatsapp",
+        "twitter",
+        "instagram",
+        "tiktok"
+      ],
+      "ogTitle": "blockvibez by charity ",
+      "tagline": "your mood forever on chain",
+      "ogDescription": "drop your vibe emoji and see it live onchain"
+    }
   }
-}
