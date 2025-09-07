@@ -1,43 +1,35 @@
-function withValidProperties(
-  properties: Record<string, undefined | string | string[]>,
-) {
-  return Object.fromEntries(
-    Object.entries(properties).filter(([key, value]) => {
-      if (Array.isArray(value)) {
-        return value.length > 0;
-      }
-      return !!value;
-    }),
-  );
-}
-
 export async function GET() {
-  const URL = process.env.NEXT_PUBLIC_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://vibe-coding-snowy-five.vercel.app';
 
   return Response.json({
     accountAssociation: {
+      // Optional: If you have account association details
       header: process.env.FARCASTER_HEADER,
       payload: process.env.FARCASTER_PAYLOAD,
       signature: process.env.FARCASTER_SIGNATURE,
     },
-    frame: withValidProperties({
+    frame: {
       version: "1",
-      name: process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME,
-      subtitle: process.env.NEXT_PUBLIC_APP_SUBTITLE,
-      description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
-      screenshotUrls: [],
-      iconUrl: process.env.NEXT_PUBLIC_APP_ICON,
-      splashImageUrl: process.env.NEXT_PUBLIC_APP_SPLASH_IMAGE,
-      splashBackgroundColor: process.env.NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR,
-      homeUrl: URL,
-      webhookUrl: `${URL}/api/webhook`,
-      primaryCategory: process.env.NEXT_PUBLIC_APP_PRIMARY_CATEGORY,
-      tags: [],
-      heroImageUrl: process.env.NEXT_PUBLIC_APP_HERO_IMAGE,
-      tagline: process.env.NEXT_PUBLIC_APP_TAGLINE,
-      ogTitle: process.env.NEXT_PUBLIC_APP_OG_TITLE,
-      ogDescription: process.env.NEXT_PUBLIC_APP_OG_DESCRIPTION,
-      ogImageUrl: process.env.NEXT_PUBLIC_APP_OG_IMAGE,
-    }),
+      // Required fields
+      name: process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME || "blockvibez",
+      iconUrl: `${baseUrl}/icon.png`,
+      homeUrl: baseUrl,
+      webhookUrl: `${baseUrl}/api/webhook`,
+      
+      // Optional but recommended fields
+      description: "A great description of your app.",
+      imageUrl: `${baseUrl}/screenshot.png`,
+      buttonTitle: "Connect",
+      splashImageUrl: `${baseUrl}/splash.png`,
+      splashBackgroundColor: "#000000",
+      subtitle: "Your cool subtitle",
+      primaryCategory: "tools",
+      tags: ["web3", "social"],
+      heroImageUrl: `${baseUrl}/hero.png`,
+      tagline: "The best app for vibes.",
+      ogTitle: "blockvibez",
+      ogDescription: "A great description for social sharing.",
+      ogImageUrl: `${baseUrl}/screenshot.png`,
+    },
   });
 }
