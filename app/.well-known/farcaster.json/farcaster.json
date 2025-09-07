@@ -1,26 +1,26 @@
 {
-  "frame": {
-    "version": "1",
-    "name": "blockvibez",
-    "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
-    "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
-    "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
-    "description": "A great description of your app.",
-    "imageUrl": "https://vibe-coding-snowy-five.vercel.app/screenshot.png",
-    "buttonTitle": "Connect",
-    "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
-    "splashBackgroundColor": "#000000",
-    "subtitle": "Your cool subtitle",
-    "primaryCategory": "developer-tools",
-    "tags": [
-      "web3",
-      "social"
-    ],
-    "heroImageUrl": "https://vibe-coding-snowy-five.vercel.app/hero.png",
-    "tagline": "The best app for vibes.",
-    "ogTitle": "blockvibez",
-    "ogDescription": "A great description for social sharing."
+    "frame": {
+      "name": "blockvibez",
+      "version": "1",
+      "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
+      "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
+      "imageUrl": "https://vibe-coding-snowy-five.vercel.app/image.png",
+      "buttonTitle": "set my vibe",
+      "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
+      "splashBackgroundColor": "#6C63FF",
+      "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
+      "subtitle": "catch the vibes, secured on the blockchain",
+      "description": "blockvibez is a playful blockchain mini-app that lets users share their current vibe with emojis, stoted directly on chain. connect your metamask wallet, set your vibe and watch the community mood board come alive in real time",
+      "primaryCategory": "developer-tools",
+      "tags": [
+        "facebook",
+        "whatsapp",
+        "twitter",
+        "instagram",
+        "tiktok"
+      ],
+      "ogTitle": "blockvibez by charity ",
+      "tagline": "your mood forever on chain",
+      "ogDescription": "drop your vibe emoji and see it live onchain"
+    }
   }
-}
-
-
