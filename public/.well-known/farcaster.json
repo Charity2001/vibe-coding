@@ -21,6 +21,11 @@
       ],
       "ogTitle": "blockvibez by charity ",
       "tagline": "your mood forever on chain",
-      "ogDescription": "drop your vibe emoji and see it live onchain"
+      "ogDescription": "drop your vibe emoji and see it live onchain",
+      "accountAssociation": {
+        "header": "",
+        "payload": "",
+        "signature": ""
+      }
     }
   }
