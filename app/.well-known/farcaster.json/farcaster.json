@@ -1,0 +1,26 @@
+{
+  "frame": {
+    "version": "1",
+    "name": "blockvibez",
+    "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
+    "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
+    "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
+    "description": "A great description of your app.",
+    "imageUrl": "https://vibe-coding-snowy-five.vercel.app/screenshot.png",
+    "buttonTitle": "Connect",
+    "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "subtitle": "Your cool subtitle",
+    "primaryCategory": "developer-tools",
+    "tags": [
+      "web3",
+      "social"
+    ],
+    "heroImageUrl": "https://vibe-coding-snowy-five.vercel.app/hero.png",
+    "tagline": "The best app for vibes.",
+    "ogTitle": "blockvibez",
+    "ogDescription": "A great description for social sharing."
+  }
+}
+
+
