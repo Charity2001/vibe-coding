@@ -9,8 +9,8 @@
       "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
       "splashBackgroundColor": "#6C63FF",
       "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
-      "subtitle": "catch the vibes, secured on the blockchain",
-      "description": "blockvibez is a playful blockchain mini-app that lets users share their current vibe with emojis, stoted directly on chain. connect your metamask wallet, set your vibe and watch the community mood board come alive in real time",
+      "subtitle": "catch the vibes on-chain",
+      "description": "share your vibe with emojis, on chain. connect your wallet, set your vibe and see the community mood board update in real time",
       "primaryCategory": "developer-tools",
       "tags": [
         "facebook",
