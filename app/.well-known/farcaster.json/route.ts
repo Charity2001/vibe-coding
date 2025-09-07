@@ -23,7 +23,7 @@ export async function GET() {
       splashImageUrl: `${baseUrl}/splash.png`,
       splashBackgroundColor: "#000000",
       subtitle: "Your cool subtitle",
-      primaryCategory: "tools",
+      primaryCategory: "developer-tools",
       tags: ["web3", "social"],
       heroImageUrl: `${baseUrl}/hero.png`,
       tagline: "The best app for vibes.",
