@@ -11,30 +11,14 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
-    const { fid, notification } = body;
-
-    const result = await sendFrameNotification({
-      fid,
-      title: notification.title,
-      body: notification.body,
-      notificationDetails: notification.notificationDetails,
-    });
-
-    if (result.state === "error") {
-      return NextResponse.json(
-        { error: result.error },
-        { status: 500 },
-      );
-    }
-
-    return NextResponse.json({ success: true }, { status: 200 });
+    const { fid, title, body } = await request.json();
+    await sendFrameNotification({ fid, title, body });
+    return NextResponse.json({ success: true });
   } catch (error) {
+    console.error("Notification error:", error);
     return NextResponse.json(
-      {
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 400 },
+      { error: "Failed to send notification" },
+      { status: 500 },
     );
   }
 }

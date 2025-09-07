@@ -88,8 +88,8 @@ export async function POST(request: Request) {
         await setUserNotificationDetails(fid, event.notificationDetails);
         await sendFrameNotification({
           fid,
-          title: `Welcome to ${appName}`,
-          body: `Thank you for adding ${appName}`,
+          title: `Welcome to ${appName || "our app"}`,
+          body: `Thank you for adding ${appName || "our app"}`,
         });
       } else {
         await deleteUserNotificationDetails(fid);
@@ -106,8 +106,8 @@ export async function POST(request: Request) {
       await setUserNotificationDetails(fid, event.notificationDetails);
       await sendFrameNotification({
         fid,
-        title: `Welcome to ${appName}`,
-        body: `Thank you for enabling notifications for ${appName}`,
+        title: `Welcome to ${appName || "our app"}`,
+        body: `Thank you for enabling notifications for ${appName || "our app"}`,
       });
 
       break;
