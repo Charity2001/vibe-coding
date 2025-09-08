@@ -17,8 +17,11 @@ type Vibe = {
 export default function Page() {
   const [vibes, setVibes] = useState<Vibe[]>([]);
 
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
     sdk.actions.ready();
+    setIsReady(true);
   }, []);
 
   // Watch for new vibe events using viem directly
@@ -66,6 +69,21 @@ export default function Page() {
           <p className="mt-4 text-lg text-gray-400">
             Send your vibes. Onchain. Everywhere.
           </p>
+        </div>
+
+        <div className="mt-8 text-center">
+          <p>Farcaster SDK Ready: {isReady ? "Yes" : "No"}</p>
+          {!isReady && (
+            <button
+              onClick={() => {
+                sdk.actions.ready();
+                setIsReady(true);
+              }}
+              className="mt-4 px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            >
+              Manually Set Ready
+            </button>
+          )}
         </div>
 
         <div className="flex justify-center mt-8 space-x-4">
