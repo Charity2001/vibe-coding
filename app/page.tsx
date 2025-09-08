@@ -6,6 +6,7 @@ import { base } from "wagmi/chains";
 import WalletConnect from "./components/WalletConnect";
 import EmojiButton from "./components/EmojiButton";
 import { contractAddress, contractABI } from "../lib/contract";
+import { sdk } from "@farcaster/miniapp-sdk";
 
 type Vibe = {
   user: string;
@@ -15,6 +16,10 @@ type Vibe = {
 
 export default function Page() {
   const [vibes, setVibes] = useState<Vibe[]>([]);
+
+  useEffect(() => {
+    sdk.actions.ready();
+  }, []);
 
   // Watch for new vibe events using viem directly
   useEffect(() => {
