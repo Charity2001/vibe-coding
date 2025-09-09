@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import WalletConnect from "./components/WalletConnect";
 import EmojiButton from "./components/EmojiButton";
+import { sdk } from "@farcaster/miniapp-sdk";
 
 type Vibe = {
   user: string;
@@ -27,6 +28,18 @@ export default function Page() {
   const [showPointsModal, setShowPointsModal] = useState(false);
 
   useEffect(() => {
+    // Initialize Farcaster SDK
+    const initializeFarcaster = async () => {
+      try {
+        await sdk.actions.ready();
+        console.log("Farcaster SDK ready");
+      } catch {
+        console.log("Farcaster SDK not available (running outside Farcaster)");
+      }
+    };
+
+    initializeFarcaster();
+
     // Initialize with some demo vibes
     const demoVibes: Vibe[] = [
       {
