@@ -26,6 +26,8 @@ export default function Page() {
     lastLogin: Date.now()
   });
   const [showPointsModal, setShowPointsModal] = useState(false);
+  const [totalVibesSent, setTotalVibesSent] = useState(0);
+  const [showCelebration, setShowCelebration] = useState(false);
 
   useEffect(() => {
     // Initialize Farcaster SDK
@@ -91,6 +93,12 @@ export default function Page() {
       }
     }
     
+    // Load saved statistics
+    const savedVibes = localStorage.getItem('totalVibesSent');
+    if (savedVibes) {
+      setTotalVibesSent(parseInt(savedVibes));
+    }
+    
     setIsReady(true);
   }, [user.points]);
 
@@ -110,9 +118,20 @@ export default function Page() {
       setUser(prev => ({ ...prev, points: newPoints }));
       localStorage.setItem('userPoints', newPoints.toString());
       
-      alert(`Vibe "${emoji}" sent! Cost: ${vibeCost} points. Remaining: ${newPoints} points`);
+      // Update statistics
+      const newTotalVibes = totalVibesSent + 1;
+      setTotalVibesSent(newTotalVibes);
+      localStorage.setItem('totalVibesSent', newTotalVibes.toString());
+      
+      // Show celebration for milestones
+      if (newTotalVibes % 10 === 0) {
+        setShowCelebration(true);
+        setTimeout(() => setShowCelebration(false), 3000);
+      }
+      
+      alert(`🎉 Vibe "${emoji}" sent! Cost: ${vibeCost} points. Remaining: ${newPoints} points\n\nTotal vibes sent: ${newTotalVibes}`);
     } else {
-      alert(`Not enough points! You need ${vibeCost} points to send a vibe. You have ${user.points} points.`);
+      alert(`❌ Not enough points! You need ${vibeCost} points to send a vibe. You have ${user.points} points.\n\nClick "Earn Points" to get more!`);
     }
   };
 
@@ -130,16 +149,25 @@ export default function Page() {
 
         {/* Points Display */}
         <div className="mt-4 flex justify-between items-center bg-gray-800 rounded-lg p-4">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl">💎</span>
-            <div>
-              <p className="text-sm text-gray-400">Points</p>
-              <p className="text-xl font-bold text-yellow-400">{user.points}</p>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl">💎</span>
+              <div>
+                <p className="text-sm text-gray-400">Points</p>
+                <p className="text-xl font-bold text-yellow-400">{user.points}</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl">📊</span>
+              <div>
+                <p className="text-sm text-gray-400">Vibes Sent</p>
+                <p className="text-xl font-bold text-green-400">{totalVibesSent}</p>
+              </div>
             </div>
           </div>
           <button
             onClick={() => setShowPointsModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm font-medium"
+            className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm font-medium transition-colors"
           >
             Earn Points
           </button>
@@ -172,6 +200,11 @@ export default function Page() {
           <EmojiButton emoji="😎" onVibeSent={handleVibeSent} />
           <EmojiButton emoji="🥳" onVibeSent={handleVibeSent} />
           <EmojiButton emoji="🤯" onVibeSent={handleVibeSent} />
+          <EmojiButton emoji="❤️" onVibeSent={handleVibeSent} />
+          <EmojiButton emoji="⭐" onVibeSent={handleVibeSent} />
+          <EmojiButton emoji="🌈" onVibeSent={handleVibeSent} />
+          <EmojiButton emoji="🎈" onVibeSent={handleVibeSent} />
+          <EmojiButton emoji="🎊" onVibeSent={handleVibeSent} />
         </div>
 
         <div className="mt-12">
@@ -195,6 +228,15 @@ export default function Page() {
               ))}
           </div>
         </div>
+
+        {/* Celebration Animation */}
+        {showCelebration && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+            <div className="text-6xl animate-bounce">
+              🎉🎊🎉
+            </div>
+          </div>
+        )}
 
         {/* Points Earning Modal */}
         {showPointsModal && (
