@@ -18,7 +18,7 @@ type User = {
 
 export default function Page() {
   const [vibes, setVibes] = useState<Vibe[]>([]);
-  const [isReady, setIsReady] = useState(false);
+  const [, setIsReady] = useState(false);
   const [user, setUser] = useState<User>({
     name: "DemoUser",
     points: 100, // Starting points
@@ -79,7 +79,7 @@ export default function Page() {
     }
     
     setIsReady(true);
-  }, []);
+  }, [user.points]);
 
   const handleVibeSent = (emoji: string) => {
     const vibeCost = 10; // Cost in points to send a vibe

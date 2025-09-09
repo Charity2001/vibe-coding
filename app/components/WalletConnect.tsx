@@ -1,11 +1,11 @@
 "use client";
 
-import { ConnectWallet } from "@coinbase/onchainkit/wallet";
-
 export default function WalletConnect() {
   return (
     <div className="flex justify-end">
-      <ConnectWallet />
+      <div className="bg-green-600 px-4 py-2 rounded-lg text-sm font-medium">
+        🎮 Demo Mode
+      </div>
     </div>
   );
 }
