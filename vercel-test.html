@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vercel Deployment Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f0f0f0; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Vercel Deployment Test</h1>
+        <p class="success">✅ This file is accessible!</p>
+        <p class="info">If you can see this, your Vercel deployment is working.</p>
+        
+        <h2>Next Steps:</h2>
+        <ol>
+            <li>Check your Vercel dashboard</li>
+            <li>Find your project domain</li>
+            <li>Update the Farcaster manifest with the correct domain</li>
+        </ol>
+        
+        <h2>Current Domain:</h2>
+        <p><strong>Expected:</strong> vibe-coding-charity2001.vercel.app</p>
+        <p><strong>Actual:</strong> <span id="current-domain">Loading...</span></p>
+        
+        <h2>Manifest Test:</h2>
+        <p><a href="/.well-known/farcaster.json" target="_blank">Test Farcaster Manifest</a></p>
+    </div>
+    
+    <script>
+        document.getElementById('current-domain').textContent = window.location.hostname;
+    </script>
+</body>
+</html>
