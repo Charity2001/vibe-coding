@@ -1,114 +1,79 @@
-# MiniKit Template
+# 🎮 blockvibez - Demo Mode
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-onchain --mini`](), configured with:
+A blockchain-based social platform where users can send emoji "vibes" and see them in real-time. **Now in DEMO MODE - No money required!**
 
-- [MiniKit](https://docs.base.org/builderkits/minikit/overview)
-- [OnchainKit](https://www.base.org/builders/onchainkit)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Next.js](https://nextjs.org/docs)
+## ✨ Features
 
-## Getting Started
+- **10 Emoji Options**: Send vibes with 🔥, 🚀, 🎉, 💯, 😀, 😍, 🤔, 😎, 🥳, 🤯
+- **Live Vibe Board**: See all vibes from different users in real-time
+- **Instant Sending**: No blockchain fees or wallet required in demo mode
+- **Beautiful UI**: Dark theme with modern design
+- **Farcaster Integration**: Built with OnchainKit and MiniKit
 
-1. Install dependencies:
+## 🚀 Quick Start
+
+1. **Install dependencies:**
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
 ```
 
-2. Verify environment variables, these will be set up by the `npx create-onchain --mini` command:
-
-You can regenerate the FARCASTER Account Association environment variables by running `npx create-onchain --manifest` in your project directory.
-
-The environment variables enable the following features:
-
-- Frame metadata - Sets up the Frame Embed that will be shown when you cast your frame
-- Account association - Allows users to add your frame to their account, enables notifications
-- Redis API keys - Enable Webhooks and background notifications for your application by storing users notification details
-
-```bash
-# Shared/OnchainKit variables
-NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=
-NEXT_PUBLIC_URL=
-NEXT_PUBLIC_ICON_URL=
-NEXT_PUBLIC_ONCHAINKIT_API_KEY=
-
-# Frame metadata
-FARCASTER_HEADER=
-FARCASTER_PAYLOAD=
-FARCASTER_SIGNATURE=
-NEXT_PUBLIC_APP_ICON=
-NEXT_PUBLIC_APP_SUBTITLE=
-NEXT_PUBLIC_APP_DESCRIPTION=
-NEXT_PUBLIC_APP_SPLASH_IMAGE=
-NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR=
-NEXT_PUBLIC_APP_PRIMARY_CATEGORY=
-NEXT_PUBLIC_APP_HERO_IMAGE=
-NEXT_PUBLIC_APP_TAGLINE=
-NEXT_PUBLIC_APP_OG_TITLE=
-NEXT_PUBLIC_APP_OG_DESCRIPTION=
-NEXT_PUBLIC_APP_OG_IMAGE=
-
-# Redis config
-REDIS_URL=
-REDIS_TOKEN=
-```
-
-3. Start the development server:
+2. **Start the development server:**
 ```bash
 npm run dev
 ```
 
-## Template Features
+3. **Open your browser:**
+Navigate to `http://localhost:3000`
 
-### Frame Configuration
-- `.well-known/farcaster.json` endpoint configured for Frame metadata and account association
-- Frame metadata automatically added to page headers in `layout.tsx`
+4. **Start vibing:**
+Click any emoji button to send a vibe instantly!
 
-### Background Notifications
-- Redis-backed notification system using Upstash
-- Ready-to-use notification endpoints in `api/notify` and `api/webhook`
-- Notification client utilities in `lib/notification-client.ts`
+## 🎯 How It Works
 
-### Theming
-- Custom theme defined in `theme.css` with OnchainKit variables
-- Pixel font integration with Pixelify Sans
-- Dark/light mode support through OnchainKit
+- **Demo Mode**: The app now works locally without requiring real blockchain transactions
+- **Instant Feedback**: Click emojis and see them appear immediately in the vibe board
+- **No Wallet Required**: No need to connect a wallet or pay gas fees
+- **Real-time Updates**: All vibes appear instantly in the live feed
 
-### MiniKit Provider
-The app is wrapped with `MiniKitProvider` in `providers.tsx`, configured with:
-- OnchainKit integration
-- Access to Frames context
-- Sets up Wagmi Connectors
-- Sets up Frame SDK listeners
-- Applies Safe Area Insets
+## 🛠️ Technical Stack
 
-## Customization
+- **Next.js 15** - React framework
+- **OnchainKit** - Wallet connection and blockchain integration
+- **Tailwind CSS** - Styling
+- **TypeScript** - Type safety
+- **Farcaster MiniKit** - Social platform integration
 
-To get started building your own frame, follow these steps:
+## 📱 Deployment
 
-1. Remove the DemoComponents:
-   - Delete `components/DemoComponents.tsx`
-   - Remove demo-related imports from `page.tsx`
+### GitHub Setup
+1. Create a new repository on GitHub
+2. Add the remote:
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/blockvibez.git
+git branch -M main
+git push -u origin main
+```
 
-2. Start building your Frame:
-   - Modify `page.tsx` to create your Frame UI
-   - Update theme variables in `theme.css`
-   - Adjust MiniKit configuration in `providers.tsx`
+### Vercel Deployment
+1. Connect your GitHub repository to Vercel
+2. Deploy automatically on every push
+3. Your app will be live at `https://your-app.vercel.app`
 
-3. Add your frame to your account:
-   - Cast your frame to see it in action
-   - Share your frame with others to start building your community
+## 🎨 Customization
 
-## Learn More
+- **Add More Emojis**: Edit `app/page.tsx` to add more emoji buttons
+- **Change Theme**: Modify `app/theme.css` for different colors
+- **Update Styling**: Edit Tailwind classes in components
 
-- [MiniKit Documentation](https://docs.base.org/builderkits/minikit/overview)
-- [OnchainKit Documentation](https://docs.base.org/builderkits/onchainkit/getting-started)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-# vibe-coding
-# vibe-coding
+## 🔄 Original vs Demo Mode
+
+**Original**: Required wallet connection and gas fees to send vibes on Base blockchain
+**Demo Mode**: Works instantly without any financial requirements
+
+## 📄 License
+
+MIT License - Feel free to use and modify!
+
+---
+
+**Made with ❤️ for the blockchain community**
