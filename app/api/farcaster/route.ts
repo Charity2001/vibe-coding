@@ -1,0 +1,38 @@
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const manifest = {
+    version: "1.0.0",
+    name: "blockvibez",
+    iconUrl: "https://vibe-coding-charity2001.vercel.app/icon.png",
+    homeUrl: "https://vibe-coding-charity2001.vercel.app",
+    description: "Send your vibes. With Points. Everywhere.",
+    splash: {
+      image: "https://vibe-coding-charity2001.vercel.app/splash.png",
+      backgroundColor: "#000000"
+    },
+    screenshots: [
+      "https://vibe-coding-charity2001.vercel.app/screenshot.png"
+    ],
+    category: "social",
+    tagline: "blockvibez",
+    og: {
+      title: "blockvibez",
+      description: "Send your vibes. With Points. Everywhere.",
+      image: "https://vibe-coding-charity2001.vercel.app/screenshot.png"
+    },
+    frame: {
+      image: "https://vibe-coding-charity2001.vercel.app/hero.png",
+      postUrl: "https://vibe-coding-charity2001.vercel.app/api/frame"
+    }
+  };
+
+  return NextResponse.json(manifest, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
+}
