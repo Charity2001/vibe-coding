@@ -1,0 +1,31 @@
+{
+  "frame": {
+    "name": "blockvibez",
+    "version": "1",
+    "iconUrl": "https://vibe-coding-snowy-five.vercel.app/icon.png",
+    "homeUrl": "https://vibe-coding-snowy-five.vercel.app",
+    "imageUrl": "https://vibe-coding-snowy-five.vercel.app/image.png",
+    "buttonTitle": "set my vibe",
+    "splashImageUrl": "https://vibe-coding-snowy-five.vercel.app/splash.png",
+    "splashBackgroundColor": "#6C63FF",
+    "webhookUrl": "https://vibe-coding-snowy-five.vercel.app/api/webhook",
+    "description": "share your vibe with emojis, on chain. connect your wallet, set your vibe and see the community mood board update in real time",
+    "subtitle": "catch the vibes on-chain",
+    "primaryCategory": "developer-tools",
+    "tags": [
+      "facebook",
+      "whatsapp",
+      "twitter",
+      "tiktok",
+      "instagram"
+    ],
+    "ogTitle": "blockvibez by charity",
+    "tagline": "your mood forever on chain",
+    "ogDescription": "drop your vibe emoji and see it live onchain"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEzMjY0MTYsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgxM2UyMEJiYmE1RTFjM0JCOEQ1QzlFNWVGMDgyZTJFNEU5NDlGNTY1In0",
+    "payload": "eyJkb21haW4iOiJ2aWJlLWNvZGluZy1zbm93eS1maXZlLnZlcmNlbC5hcHAifQ",
+    "signature": "MHhmNzgzMmViMTBkYjM2M2I0ODQ3NWNkMDBmODgyOWViMTEwNjlkNmEyN2E0YWQzNzdlNzQ2ODhhYTY2MmRkYjk0MjJjN2E5ODM3NzBhYjBjZDM2YzI5MTRkYTczNmNkM2JkZTIyZjg5YzhiMDFhMDRjMDBjNzMxYTY2Y2I2ZWMzZDFi"
+  }
+}
