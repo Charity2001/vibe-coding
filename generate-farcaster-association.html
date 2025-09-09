@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farcaster Account Association Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .step { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .code { background: #f5f5f5; padding: 10px; border-radius: 3px; font-family: monospace; }
+        .button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Farcaster Account Association Generator</h1>
+        
+        <div class="step">
+            <h3>Step 1: Your Domain</h3>
+            <p><strong>Domain:</strong> <span class="code">vibe-coding-charity2001.vercel.app</span></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Generate Association</h3>
+            <p>Click the button below to open the Farcaster Developer Tools:</p>
+            <button class="button" onclick="openFarcasterTools()">Open Farcaster Developer Tools</button>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Alternative Method</h3>
+            <p>Or try the Mini App Preview Tool:</p>
+            <button class="button" onclick="openMiniAppPreview()">Open Mini App Preview</button>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Expected Result</h3>
+            <p>You should get something like this:</p>
+            <div class="code">
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjEzMjY0MTYsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgxM2UyMEJiYmE1RTFjM0JCOEQ1QzlFNWVGMDgyZTJFNEU5NDlGNTY1In0",
+    "payload": "eyJkb21haW4iOiJ2aWJlLWNvZGluZy1jaGFyaXR5MjAwMS52ZXJjZWwuYXBwIn0",
+    "signature": "0x..."
+  }
+}
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Copy the Result</h3>
+            <p>Once you get the association data, copy it and paste it here so I can update your manifest!</p>
+        </div>
+    </div>
+
+    <script>
+        function openFarcasterTools() {
+            window.open('https://docs.farcaster.xyz/developers/mini-apps', '_blank');
+        }
+        
+        function openMiniAppPreview() {
+            window.open('https://miniapps.farcaster.xyz/', '_blank');
+        }
+    </script>
+</body>
+</html>
