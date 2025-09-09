@@ -22,7 +22,14 @@ export async function GET() {
       image: "https://vibe-coding-charity2001.vercel.app/screenshot.png"
     },
     frame: {
-      image: "https://vibe-coding-charity2001.vercel.app/hero.png",
+      version: "1",
+      name: "blockvibez",
+      homeUrl: "https://vibe-coding-charity2001.vercel.app",
+      iconUrl: "https://vibe-coding-charity2001.vercel.app/icon.png",
+      imageUrl: "https://vibe-coding-charity2001.vercel.app/hero.png",
+      buttonTitle: "Send Vibe",
+      splashImageUrl: "https://vibe-coding-charity2001.vercel.app/splash.png",
+      splashBackgroundColor: "#000000",
       postUrl: "https://vibe-coding-charity2001.vercel.app/api/frame"
     }
   };
